@@ -1,4 +1,3 @@
-<?php include __DIR__ . '/../layouts/header.php'; ?>
 
 <h2>DANH SÁCH HỌC PHẦN</h2>
 <table class="table">
@@ -11,10 +10,10 @@
         </tr>
     </thead>
     <tbody>
-        <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
+    <?php foreach ($result as $row) { ?>
             <tr>
-                <td><?= $row['MaHocPhan'] ?></td>
-                <td><?= $row['TenHocPhan'] ?></td>
+                <td><?= $row['MaHP'] ?></td>
+                <td><?= $row['TenHP'] ?></td>
                 <td><?= $row['SoTinChi'] ?></td>
                 <td><button class="btn btn-success">Đăng Ký</button></td>
             </tr>
@@ -22,4 +21,3 @@
     </tbody>
 </table>
 
-<?php include __DIR__ . '/../layouts/footer.php'; ?>

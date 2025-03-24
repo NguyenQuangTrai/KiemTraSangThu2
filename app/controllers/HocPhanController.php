@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/../config/database.php';
-require_once __DIR__ . '/../models/Course.php';
+require_once __DIR__ . '/../models/HocPhan.php';
 
-class CourseController
+class HocPhanController
 {
     private $db;
     private $hocPhan;
@@ -15,7 +15,7 @@ class CourseController
             if (!$this->db) {
                 throw new Exception("Không thể kết nối đến cơ sở dữ liệu");
             }
-            $this->hocPhan = new Course($this->db);
+            $this->hocPhan = new HocPhan($this->db);
         } catch (Exception $e) {
             die("Lỗi khởi tạo controller: " . $e->getMessage());
         }
@@ -29,7 +29,7 @@ class CourseController
             if (!$result) {
                 throw new Exception("Không thể lấy danh sách học phần");
             }
-            include __DIR__ . '/../views/course/index.php';
+            include __DIR__ . '/../views/hocphan/index.php';
         } catch (Exception $e) {
             die("Lỗi hiển thị danh sách: " . $e->getMessage());
         }
@@ -38,7 +38,7 @@ class CourseController
     // Hiển thị form thêm học phần
     public function create()
     {
-        include __DIR__ . '/../views/course/create.php';
+        include __DIR__ . '/../views/hocphan/create.php';
     }
 
     // Xử lý thêm học phần
@@ -71,7 +71,7 @@ class CourseController
                 if (!$result) {
                     throw new Exception("Không tìm thấy học phần");
                 }
-                include __DIR__ . '/../views/course/edit.php';
+                include __DIR__ . '/../views/hocphan/edit.php';
             } catch (Exception $e) {
                 die("Lỗi hiển thị form sửa: " . $e->getMessage());
             }
@@ -125,7 +125,7 @@ class CourseController
                 if (!$result) {
                     throw new Exception("Không tìm thấy học phần");
                 }
-                include __DIR__ . '/../views/course/detail.php';
+                include __DIR__ . '/../views/hocphan/detail.php';
             } catch (Exception $e) {
                 die("Lỗi hiển thị chi tiết: " . $e->getMessage());
             }

@@ -2,7 +2,7 @@
 class Student
 {
     private $conn;
-    private $table_name = "SinhVien";
+    private $table_name = "Student";
 
     public $MaSV;
     public $HoTen;
